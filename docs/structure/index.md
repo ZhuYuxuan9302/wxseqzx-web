@@ -39,7 +39,6 @@ const code = [
     <template #lead>社区开发者帮助编写代码、审核新代码并保持项目的活力。通过贡献新社区服务和帮助完善旧服务，他们使这个社区得以运行</template>
     <template #members>
       <VPTeamMembers size="small" :members="code" />
-    </template>
 
 </VPTeamPage>
 
