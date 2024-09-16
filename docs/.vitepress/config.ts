@@ -42,7 +42,7 @@ export default defineConfig({
       label: '目录',
     },
 
-    socialLinks: [{ icon: 'github', link: 'https://github.com/MineJPGcraft/MCJPG' }],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/ZhuYuxuan9302/wxseqzx-web' }],
 
     footer: {
       message: '无锡市二泉中学非官方网站',
