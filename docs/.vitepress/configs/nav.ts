@@ -2,8 +2,8 @@ import type { DefaultTheme } from 'vitepress'
 
 export const nav: DefaultTheme.Config['nav'] = [
   { text: '首页', link: '/' },
-  { text: '学校简介', link: '/' },
-  { text: '规则', link: '/introduction/' },
+  { text: '学校简介', link: '/introduction/' },
+  { text: '规则', link: '/rules/' },
   {
     text: '校友',
     link: '/structure/',
