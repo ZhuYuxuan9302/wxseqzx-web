@@ -46,7 +46,7 @@ export default defineConfig({
 
     footer: {
       message: '无锡市二泉中学非官方网站',
-      copyright: 'Copyright © 2024-present <a href="https://mcjpg.org/">MCJPG</a>— —<a href="https://github.com/ZhuYuxuan9302/wxseqzx-web">我们的仓库</a>',
+      copyright: 'Copyright © 2024-present <a href="https://wxseqzx.org/">无锡市二泉中学</a>— —<a href="https://github.com/ZhuYuxuan9302/wxseqzx-web">我们的仓库</a>',
     },
 
     lastUpdated: {
