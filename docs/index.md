@@ -12,6 +12,9 @@ hero:
   actions:
     - text: 加入二泉校群
       link: https://qm.qq.com/q/4k0oPjMvEI
+    - theme?: alt
+      text: 学校介绍
+      link: /introduction/
 
 features:
   - icon:
