@@ -82,7 +82,7 @@ const alumnus = [
 
   <VPTeamPageSection>
     <template #title>社区运营</template>
-    <template #lead>社区运营帮助运行管理二泉中学的社区，是校友们得以进行便捷快速的交流</template>
+    <template #lead>社区运营帮助运行管理二泉中学的社区，使校友们得以进行便捷快速的交流</template>
     <template #members>
       <VPTeamMembers size="small" :members="maintainer" />
     </template>
