@@ -18,13 +18,26 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: true,
 
+  // 站点地图
+  sitemap: {
+    hostname: 'https://wxseqzx.org',
+  },
+
   /* markdown 配置 */
   markdown: {
     lineNumbers: true,
     image: {
       // 默认禁用图片懒加载
       lazyLoading: true
-    }
+    },
+    // 组件插入h1标题下
+    config: (md) => {
+      md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
+          let htmlResult = slf.renderToken(tokens, idx, options);
+          if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`; 
+          return htmlResult;
+      }
+    },
   },
 
   /* 主题配置 */
@@ -62,21 +75,11 @@ export default defineConfig({
       next: '下一篇',
     },
 
-    returnToTopLabel: '回到顶部',
-    sidebarMenuLabel: '菜单',
+    returnToTopLabel: '返回顶部',
+    sidebarMenuLabel: '目录',
     darkModeSwitchLabel: '主题',
     lightModeSwitchTitle: '切换到浅色模式',
     darkModeSwitchTitle: '切换到深色模式',
-
-    /*** 自定义配置 ***/
-
-    comment: {
-      repo: 'ZhuYuxuan9302/wxseqzx-web',
-      repoId: 'R_kgDOMyVmXQ',
-      category: 'Announcements',
-      categoryId: 'DIC_kwDOMyVmXc4Cigju',
-      
-    },
   },
 
   vite: {

@@ -3,11 +3,8 @@ import { useData, inBrowser } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import { nextTick, provide } from 'vue'
 import Giscus from '@giscus/vue'
-
+import backtotop from "./backtotop.vue"
 import { usePageId } from '../composables'
-
-import MNavVisitor from './MNavVisitor.vue'
-import MDocFooter from './MDocFooter.vue'
 
 const { Layout } = DefaultTheme
 const { isDark, theme, frontmatter } = useData()
@@ -63,39 +60,15 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 </script>
 
 <template>
-  <Layout v-bind="$attrs">
-    <!--
-      相关插槽
-      https://vitepress.dev/zh/guide/extending-default-theme#layout-slots
-      https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/Layout.vue
-    -->
-    <template #nav-bar-title-after>
-      <MNavVisitor />
+  <DefaultTheme.Layout>
+
+    <template #layout-bottom>
+      <backtotop />
     </template>
 
-    <template v-if="comment && frontmatter.comment !== false" #doc-footer-before>
-      <div class="doc-comments">
-        <Giscus
-          id="comments"
-          mapping="specific"
-          :term="pageId"
-          strict="1"
-          reactionsEnabled="1"
-          emitMetadata="0"
-          inputPosition="top"
-          :theme="isDark ? 'dark' : 'light'"
-          lang="zh-CN"
-          loading="lazy"
-          v-bind="{ ...comment }"
-        />
-      </div>
-    </template>
-
-    <template #doc-after>
-      <MDocFooter />
-    </template>
-  </Layout>
+  </DefaultTheme.Layout>
 </template>
+
 
 <style>
 .prev-next.prev-next {

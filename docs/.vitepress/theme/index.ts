@@ -1,5 +1,5 @@
 import { h, watch } from 'vue'
-import { useData, EnhanceAppContext } from 'vitepress'
+import { useData, EnhanceAppContext, useRoute } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import { createMediumZoomProvider } from './composables/useMediumZoom'
 import MLayout from './components/MLayout.vue'
@@ -7,14 +7,45 @@ import MNavLinks from './components/MNavLinks.vue'
 import './styles/index.scss'
 import vitepressMusic from 'vitepress-plugin-music'
 import 'vitepress-plugin-music/lib/css/index.css'
-import vitepressBackToTop from 'vitepress-plugin-back-to-top'
-import 'vitepress-plugin-back-to-top/dist/style.css'
 import confetti from "./components/confetti.vue"
+import ArticleMetadata from "./components/ArticleMetadata.vue"
+import giscusTalk from 'vitepress-plugin-comment-with-giscus'
 
 let homePageStyle: HTMLStyleElement | undefined
 
 export default {
   extends: DefaultTheme,
+
+  setup() {
+    // Get frontmatter and route
+    const { frontmatter } = useData();
+    const route = useRoute();
+        
+    // giscus配置
+    giscusTalk({
+      repo: 'ZhuYuxuan9302/wxseqzx-web',
+      repoId: 'R_kgDOMyVmXQ',
+      category: 'Announcements',
+      categoryId: 'DIC_kwDOMyVmXc4Cigju',
+      mapping: 'pathname',
+      inputPosition: 'bottom',
+      lang: 'zh-CN',
+      locales: {
+        'zh-Hans': 'zh-CN',
+        'en_US': 'en'
+      },
+      }, 
+      {
+        frontmatter, route
+      },
+      //默认值为true，表示已启用，此参数可以忽略；
+      //如果为false，则表示未启用
+      //您可以使用“comment:true”序言在页面上单独启用它
+      true
+    );
+
+  },
+
   Layout: () => {
     const props: Record<string, any> = {}
     // 获取 frontmatter
@@ -32,10 +63,8 @@ export default {
     app.component('confetti' , confetti)
     app.provide('DEV', process.env.NODE_ENV === 'development')
     vitepressMusic(playlist)
-    vitepressBackToTop({
-      threshold:300
-    })
     app.component('MNavLinks', MNavLinks)
+    app.component('ArticleMetadata' , ArticleMetadata)
 
     if (typeof window !== 'undefined') {
       watch(
@@ -84,13 +113,13 @@ function updateHomePageStyle(value: boolean) {
 
 const playlist = [
   {
-    name: 'Higher',
-    author: 'Tobu',
-    file: '/music/Higher.mp3',
+    name: 'Otherside',
+    author: 'Mojang',
+    file: '/music/otherside.mp3',
   },
   {
     name: 'maimai DX',
     author: 'SEGA',
-    file: '/music/maimai DX.mp3',
+    file: '/music/maimai-DX-prism.mp3',
   }
 ]
