@@ -28,7 +28,7 @@ const code = [
 
 const maintainer = [
     {
-    avatar: '/teammate/空白とカタルシス.jpg',
+    avatar: '/teammate/空白とカタルシス.png',
     name: '空白とカタルシス',
     title: '社区维护',
     desc: '二泉校群和校墙负责人'
