@@ -8,6 +8,7 @@ export const nav: DefaultTheme.Config['nav'] = [
     text: '校友',
     link: '/structure/',
   },
+  { text: 'AI对话', link: 'https://chat.zhuyuxuan.link/' },
   {
     text: "友情链接",
               items: [
