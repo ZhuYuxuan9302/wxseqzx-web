@@ -47,7 +47,7 @@ const alumnus = [
     {
     avatar: '/teammate/划水.jpg',
     name: '划水/地插',
-    title: '音游王',
+    title: 'wmc',
     desc: '打音游的小南梁（？',
     links: [
       { icon: {
